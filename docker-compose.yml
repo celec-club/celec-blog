@@ -1,0 +1,28 @@
+version: "3"
+networks:
+  celec-blog-network:
+services:
+ php-apache-environment:
+  networks:
+   - celec-blog-network
+  container_name: php-apache
+  build:
+   context: ./php
+   dockerfile: Dockerfile
+  volumes: 
+   - ./src/:/var/www/html/
+   - ./php/config.ini:/usr/local/etc/php/conf.d/uploads-config.ini
+  ports:
+   - 7000:80
+ mariadb:
+  container_name: mariadb-celec-blog
+  networks:
+   - celec-blog-network
+  image: mariadb
+  environment:
+   MYSQL_ROOT_PASSWORD: root
+   MYSQL_USER: root
+   MYSQL_PASSWORD: root
+  ports:
+   - "7306:3306"
+
