@@ -26,6 +26,17 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <script src="https://utteranc.es/client.js"
+            repo="CELEC-USTHB-CLUB/celec-blog"
+            issue-term="url"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+        </script>
+            </div>
+        </div>
     </div>
 @endsection
 @push("scripts")
