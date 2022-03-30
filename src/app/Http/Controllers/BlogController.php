@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Markdown;
@@ -11,6 +12,7 @@ use Illuminate\Support\Str;
 class BlogController extends Controller {
     public function showAll(Request $request) {
         $blogs = Blog::with("image")->orderByDesc("id");
+        $category = null;
         if (!is_null($request->query("query"))) {
             $blogs = $blogs->where("title", "LIKE", "%".$request->query("query")."%")
                             ->orWhere("writer", "LIKE", "%".$request->query("query")."%");
@@ -21,9 +23,10 @@ class BlogController extends Controller {
             });
         }
         if (!is_null($request->query("category"))) {
+            $category = Category::findOrFail($request->query("category"));
             $blogs = $blogs->where("category_id", $request->query("category"));
         }
-    	return view("blogs", ["blogs" => $blogs->paginate(12)->withQueryString()]);
+    	return view("blogs", ["blogs" => $blogs->paginate(12)->withQueryString(), "category" => $category]);
     }
 
     public function get($slug) {

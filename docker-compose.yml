@@ -20,9 +20,7 @@ services:
    - celec-blog-network
   image: mariadb
   environment:
-   MYSQL_ROOT_PASSWORD: root
-   MYSQL_USER: root
-   MYSQL_PASSWORD: root
+   MARIADB_ROOT_PASSWORD: root
   ports:
    - "7306:3306"
 

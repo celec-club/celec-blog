@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="google-site-verification" content="NMpxf6Yp4Qa9xKSA4VjZozhgWgAvD5QANdymWKLFilI" />
     <title>@yield("title")</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish&amp;display=swap">
@@ -25,7 +26,6 @@
         }
     </style>
 </head>
-
 <body style="font-family: Mulish, sans-serif;">
     @if(Request::is("b/*") === false)
         <x-nav-bar/>

@@ -1,6 +1,11 @@
 @extends("layouts.app")
 @section("title", "Home")
 @section("content")
+    @if($category !== null)
+        <div style="position: fixed; top: 0; z-index: 2; height: 4px; width: 100%; {!! $category->background; !!}"></div>
+    @else
+        <div style="position: fixed; top: 0; z-index: 2; height: 4px; width: 100%; background-color: #001569;"></div>
+    @endif
     <style type="text/css">
         .blog-zoom:hover {
             -ms-transform: scale(1.05); 

@@ -187,6 +187,9 @@ final class Style
             '/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Testing/',
             '/vendor\/symfony\/framework-bundle\/Test/',
             '/vendor\/symfony\/phpunit-bridge/',
+            '/vendor\/symfony\/dom-crawler/',
+            '/vendor\/symfony\/browser-kit/',
+            '/vendor\/symfony\/css-selector/',
             '/vendor\/bin\/.phpunit/',
             '/bin\/.phpunit/',
             '/vendor\/bin\/simple-phpunit/',
@@ -205,7 +208,20 @@ final class Style
 
         if ($throwable instanceof ExpectationFailedException && $comparisionFailure = $throwable->getComparisonFailure()) {
             $diff  = $comparisionFailure->getDiff();
+            $lines = explode(PHP_EOL, $diff);
+            $diff  = '';
+            foreach ($lines as $line) {
+                if (0 === strpos($line, '-')) {
+                    $line = '<fg=red>' . $line . '</>';
+                } elseif (0 === strpos($line, '+')) {
+                    $line = '<fg=green>' . $line . '</>';
+                }
+
+                $diff .= $line . PHP_EOL;
+            }
+
             $diff  = trim((string) preg_replace("/\r|\n/", "\n  ", $diff));
+
             $this->output->write("  $diff");
         }
 
