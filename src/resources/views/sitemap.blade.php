@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     @foreach ($blogs as $blog)
         <url>
-            <loc>{{url($blog->slug_url)}}</loc>
+            <loc>{{ url('b/'.$blog->slug) }}</loc>
             <lastmod>{{ gmdate('Y-m-d\TH:i:s\Z',strtotime($blog->updated_at)) }}</lastmod>
             <changefreq>daily</changefreq>
             <priority>0.6</priority>
