@@ -75,4 +75,9 @@ class BlogController extends Controller {
         Blog::findOrFail($request->blog_id)->delete();
         return back();
     }
+
+    public function map() {
+        $blogs = Blog::orderBy("id", "desc")->get();
+        return response()->view("sitemap", ["blogs" => $blogs])->header("Content-type", "text/xml");
+    }
 }

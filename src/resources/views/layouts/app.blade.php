@@ -33,10 +33,10 @@
     @yield("content")
     <footer class="footer-basic" style="background: #000000;color: rgb(255,255,255);margin-top: 10%; padding: 5%;">
         <div class="social">
-            <a href="#" target="_blank"><i class="icon ion-social-instagram"></i></a>
-            <a href="#" target="_blank"><i class="icon ion-social-linkedin"></i></a>
-            <a href="#" target="_blank"><i class="icon ion-social-facebook"></i></a>
-            <a href="#" target="_blank"><i class="icon ion-social-github"></i></a>
+            <a href="https://www.instagram.com/celec_usthb" target="_blank"><i class="icon ion-social-instagram"></i></a>
+            <a href="https://dz.linkedin.com/company/celecusthb" target="_blank"><i class="icon ion-social-linkedin"></i></a>
+            <a href="https://www.facebook.com/CELECUSTHB/" target="_blank"><i class="icon ion-social-facebook"></i></a>
+            <a href="https://github.com/CELEC-USTHB-CLUB/celec-blog" target="_blank"><i class="icon ion-social-github"></i></a>
         </div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="https://celec-usthb.com/#video" target="_blank">About</a></li>

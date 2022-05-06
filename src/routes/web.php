@@ -28,3 +28,5 @@ Route::GROUP(["prefix" => "admin"], function() {
 		Route::POST("user/delete", [UserController::class, "delete"]);
 	});
 });
+
+Route::GET("sitemap.xml", [BlogController::class, "map"]);
