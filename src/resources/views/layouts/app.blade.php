@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/github.min.css">
     <style type="text/css">
         code {
-            background-color: rgb(222,222,222, 0.5) !important;
-            border-bottom: 1px solid #cfcfcf;
-            border-radius: 5px;
+            border: 0.5px solid #eeeeee;
+            border-bottom: 3px solid #cfcfcf;
+            border-radius: 7px;
+
         }
     </style>
 </head>
