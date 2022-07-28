@@ -5,13 +5,15 @@ namespace App\View\Components;
 use App\Models\Category;
 use Illuminate\View\Component;
 
-class Categories extends Component {
+class Categories extends Component
+{
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         //
     }
 
@@ -20,8 +22,10 @@ class Categories extends Component {
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render() {
+    public function render()
+    {
         $categories = Category::all();
-        return view('components.categories', ["categories" => $categories]);
+
+        return view('components.categories', ['categories' => $categories]);
     }
 }

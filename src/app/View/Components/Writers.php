@@ -22,8 +22,10 @@ class Writers extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render() {
+    public function render()
+    {
         $users = User::all();
-        return view('components.writers', ["users" => $users]);
+
+        return view('components.writers', ['users' => $users]);
     }
 }

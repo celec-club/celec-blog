@@ -14,64 +14,72 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="row">
                         <? $blog = $blogs->pop(); ?>
-                        <div class="col" style="margin-top: 1%;">
-                            <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                <img data-large="{{ url('storage/app/'.$blog->image->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url('storage/app/'.$blog->image->path) }}" style="height: 350px; border-radius: 10px !important;">
-                                <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
-                                 <h4 style="color: white;">
-                                    <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
-                                    <br/>
-                                    {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
-                                </h4>
+                        @if($blog !== null)
+                            <div class="col" style="margin-top: 1%;">
+                                <div class="card blog-index-card" style="border-radius: 10px !important;">
+                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
+                                     <h4 style="color: white;">
+                                        <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
+                                        <br/>
+                                        {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
+                                    </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <div class="row" style="margin-top: 1%;">
                         <? $blog = $blogs->pop(); ?>
-                        <div class="col" style="margin-top: 1%;">
-                            <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                <img data-large="{{ url('storage/app/'.$blog->image->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url('storage/app/'.$blog->image->path) }}" style="height: 350px; border-radius: 10px !important;">
-                                <div class="card-img-overlay index-blog" style=" position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
-                                 <h4 style="color: white;">
-                                    <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
-                                    <br/>
-                                    {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
-                                </h4>
+                        @if($blog !== null)
+                            <div class="col" style="margin-top: 1%;">
+                                <div class="card blog-index-card" style="border-radius: 10px !important;">
+                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <div class="card-img-overlay index-blog" style=" position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
+                                     <h4 style="color: white;">
+                                        <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
+                                        <br/>
+                                        {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
+                                    </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="row">
                          <? $blog = $blogs->pop(); ?>
-                        <div class="col" style="margin-top: 1%;">
-                            <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                <img data-large="{{ url('storage/app/'.$blog->image->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url('storage/app/'.$blog->image->path) }}" style="height: 350px; border-radius: 10px !important;">
-                                <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
-                                    <h4 style="color: white;">
-                                        <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
-                                        <br/>
-                                        {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
-                                    </h4>
+                         @if($blog !== null)
+                            <div class="col" style="margin-top: 1%;">
+                                <div class="card blog-index-card" style="border-radius: 10px !important;">
+                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
+                                        <h4 style="color: white;">
+                                            <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
+                                            <br/>
+                                            {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
+                                        </h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <div class="row" style="margin-top: 1%;">
                         <div class="col" style="margin-top: 1%;">
                             <? $blog = $blogs->pop(); ?>
-                            <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                <img data-large="{{ url('storage/app/'.$blog->image->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url('storage/app/'.$blog->image->path) }}" style="height: 350px; border-radius: 10px !important;">
-                                <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
-                                    <h4 style="color: white;">
-                                        <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
-                                        <br/>
-                                        {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
-                                    </h4>
+                            @if($blog !== null)
+                                <div class="card blog-index-card" style="border-radius: 10px !important;">
+                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
+                                        <h4 style="color: white;">
+                                            <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
+                                            <br/>
+                                            {{date_format($blog->created_at, "Y-m-d")}} <small style="font-size:16px;">{{ $blog->readingTime() }}</small>
+                                        </h4>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

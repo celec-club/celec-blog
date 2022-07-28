@@ -32,6 +32,8 @@
 			      				<input type="hidden" name="blog_id" value="{{ $blog->id }}">
 			      				<button type="submit" class="btn btn-outline-danger">Delete</button>
 			      			</form>
+			      			<br>
+			      			<a href="{{ url('admin/blog/modify/'.$blog->id) }}"><button class="btn btn-outline-success">Modify</button></a>
 			      		</td>
 			    	</tr>
 		    	@endforeach

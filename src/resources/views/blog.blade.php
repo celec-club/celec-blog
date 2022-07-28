@@ -2,7 +2,7 @@
 @section("title", $blog->title)
 @section("content")
     <div class="container-fluid" style="padding: 0px;">
-        <div class="card" style="background-attachment: fixed; background: url('{{url('storage/app/'.$blog->image->path)}}') center / cover no-repeat;height: 65vh;border-radius: 0px;border-width: 0px;">
+        <div class="card" style="background-attachment: fixed; background: url('{{url('storage/app/public/'.$blog->image->firstWhere('size', 'full')->path)}}') center / cover no-repeat;height: 65vh;border-radius: 0px;border-width: 0px;">
             <div class="card-img-overlay" style="top: 70% !important;color: rgb(255,255,255);background: rgba(0,0,0,0.39);padding: 1%; border-radius: 0px;">
                 <h1><span style="text-decoration: underline;">{{$blog->title}}</span></h1>
                 <p>{{ date_format($blog->created_at, "Y-m-d")}} {{$blog->readingTime()}}</p>
@@ -21,7 +21,7 @@
                 <hr>
                 <ul class="list-inline">
                     @foreach($blog->tags as $tag)
-                    <li class="list-inline-item" style="margin-top: 1%;color: black !important;"><span class="badge bg-primary border-primary" style="background: rgb(222,222,222) !important;color: black !important;padding: 10px;border-bottom: 1px solid rgb(167,167,167) !important;font-size: 18px;"><a href="{{ url('blogs?tag='.$tag->name) }}">#{{$tag->name}}</a></span></li>
+                    <li class="list-inline-item" style="margin-top: 1%;color: black !important;"><span class="badge bg-primary border-primary" style="background: rgb(229, 229, 229) !important;color: black !important;padding: 10px;border-bottom: 1px solid rgb(167,167,167) !important;font-size: 18px;"><a href="{{ url('blogs?tag='.$tag->name) }}">#{{$tag->name}}</a></span></li>
                     @endforeach
                 </ul>
             </div>

@@ -1,5 +1,5 @@
 @extends("layouts.panel")
-@section("title", "Add blog")
+@section("title", "Modify blog")
 @section("content")
 	<div class="row">
 		<div class="col p-3">
@@ -18,15 +18,15 @@
 						{{ session()->get('message') }}
 					</div>
 				@endif
-				<form method="POST" action="{{ url('admin/blog/add') }}" enctype="multipart/form-data">
+				<form method="POST" action="{{ url('admin/blog/modify/'.$blog->id) }}" enctype="multipart/form-data">
 					@csrf
 					<div class="mb-3">
 						<label for="inputPassword5" class="form-label">Title</label>
-						<input name="title" type="text" class="form-control">
+						<input value="{{ $blog->title }}" name="title" type="text" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label for="inputPassword5" class="form-label">Content (Markdown supproted)</label>
-						<textarea name="content"></textarea>
+						<textarea name="content">{{$blog->content}}</textarea>
 					</div>
 					<div class="mb-3">
 						@if($categories->isEmpty())
@@ -35,28 +35,29 @@
 							</div>
 						@endif
 						<select name="category_id" class="form-select" @if($categories->isEmpty()) style="border:1px solid red;" @endif >
-						  <option selected>Select category</option>
+						  <option>Select category</option>
 						  @foreach($categories as $category)
-						  	<option value="{{$category->id}}">{{$category->title}}</option>
+						  	<option @if($category->id === $blog->category_id) selected="true" @endif value="{{$category->id}}">{{$category->title}}</option>
 						  @endforeach
 						</select>
 					</div>
 					<div class="mb-3">
 						<label for="inputPassword5" class="form-label">Tags (use <code><strong>,</strong></code> as separator)</label>
-						<input name="tags" type="text" class="form-control" placeholder="php,database ...">
+						<input value="@foreach($blog->tags as $tag) {{$tag->name}} @if(!$loop->last) , @endif @endforeach" name="tags" type="text" class="form-control" placeholder="php,database ...">
 					</div>
 					<div class="mb-3">
 						<select name="user_id" class="form-select">
 						  <option>Writer</option>
 						  @foreach($users as $user)
-						  	<option @if($user->id == auth()->user()->id) selected="true" @endif value="{{ $user->id }}">{{$user->name}} </option>
+						  	<option @if($user->name == $blog->writer) selected="true" @endif value="{{ $user->id }}">{{$user->name}} </option>
 						  @endforeach
 						</select>
 					</div>
+					<img style="max-width: 100%;" src="{{ url('storage/app/public')."/".$blog->image->first()->path }}">
 					<div class="mb-3">
 					  <label for="formFile" class="form-label">Cover</label>
 					  <input name="cover" class="form-control" type="file" id="formFile">
-					</div>			
+					</div>
 					<div class="mb-3">
 						<button type="submit" class="btn btn-outline-success float-end">Done!</button>
 					</div>	

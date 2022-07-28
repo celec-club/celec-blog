@@ -14,7 +14,7 @@ class AddIconToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->longText("icon");
+            $table->longText('icon');
         });
     }
 
