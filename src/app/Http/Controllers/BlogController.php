@@ -112,4 +112,9 @@ class BlogController extends Controller
 
         return response()->view('sitemap', ['blogs' => $blogs])->header('Content-type', 'text/xml');
     }
+
+    public function all(): void
+    {
+        return Blog::all()->pluck('title');
+    }
 }
