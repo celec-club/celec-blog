@@ -116,6 +116,6 @@ class BlogController extends Controller
 
     public function all(): Collection
     {
-        return Blog::all()->pluck('title')->all();
+        return Blog::all()->pluck('title', 'slug');
     }
 }
