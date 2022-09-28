@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Blog\CreateBlogAction;
-use App\Actions\Image\CreateMultipleResizedImagesForBlogAction;
-use App\Http\Requests\StoreBlogRequest;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Markdown;
-use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use App\Actions\Blog\CreateBlogAction;
+use App\Http\Requests\StoreBlogRequest;
+use App\Actions\Image\CreateMultipleResizedImagesForBlogAction;
 
 class BlogController extends Controller
 {
@@ -113,8 +114,8 @@ class BlogController extends Controller
         return response()->view('sitemap', ['blogs' => $blogs])->header('Content-type', 'text/xml');
     }
 
-    public function all(): void
+    public function all(): Collection
     {
-        return Blog::all()->pluck('title');
+        return Blog::all()->pluck('title')->all();
     }
 }
