@@ -9,10 +9,10 @@ class CreateMultipleResizedImagesForBlogAction
 {
     public function handle(Blog $blog, string $fullCoverPath, string $slug): void
     {
-        $smallCoverPath = 'covers/'.$slug.'-360x250-cover.jpeg';
-        Image::load(storage_path().'/app/public/'.$fullCoverPath)->width(360)->height(250)->save('storage/app/public/'.$smallCoverPath);
-        $mediumCoverPath = 'covers/'.$slug.'-600x400-cover.jpeg';
-        Image::load(storage_path().'/app/public/'.$fullCoverPath)->width(600)->height(400)->save('storage/app/public/'.$mediumCoverPath);
+        $smallCoverPath = 'covers/'.$slug.'-324x200-cover.jpeg';
+        Image::load(storage_path().'/app/public/'.$fullCoverPath)->width(324)->height(200)->save('storage/app/public/'.$smallCoverPath);
+        $mediumCoverPath = 'covers/'.$slug.'-544x350-cover.jpeg';
+        Image::load(storage_path().'/app/public/'.$fullCoverPath)->width(544)->height(350)->save('storage/app/public/'.$mediumCoverPath);
         $blog->image()->create(['path' => $smallCoverPath, 'size' => 'small']);
         $blog->image()->create(['path' => $mediumCoverPath, 'size' => 'medium']);
     }
