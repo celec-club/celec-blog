@@ -16,7 +16,7 @@
         </span>
         <br />
         <hr />
-        <a href="mailto:{{$user->profile}}" style="color:white; text-decoration: underline;">
+        <a href="mailto:{{$user->email}}" style="color:white; text-decoration: underline;">
             {{$user->email}}
         </a>
     </center>
