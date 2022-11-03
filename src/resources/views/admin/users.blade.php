@@ -33,7 +33,7 @@
 			  	</div>
 				<div class="mb-3">
 				    <label for="exampleInputEmail1" class="form-label">Description</label>
-				    <textarea name="description"></textarea>
+				    <textarea name="description">
 			  	</div>
 			  	<div class="mb-3" x-data="icon()">
 				    <label for="exampleInputEmail1" class="form-label">Icon</label>
