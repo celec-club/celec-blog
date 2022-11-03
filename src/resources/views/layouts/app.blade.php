@@ -52,6 +52,7 @@
             100%{background-position:0% 72%}
         }
     </style>
+    @yield('meta-tags')
 </head>
 <body style="font-family: Mulish, sans-serif;">
     @if(Request::is("b/*") === false)

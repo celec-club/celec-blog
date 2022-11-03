@@ -1,5 +1,11 @@
 @extends("layouts.app")
 @section("title", $blog->title)
+@section('meta-tags')
+    <meta property="og:title" content="{{$blog->title}}">
+    <meta name="description" content="{{ $blog->description }}">
+    <meta property="og:image" content="{{url('storage/app/public/'.$blog->image->firstWhere('size', 'full')->path)}}">
+    <meta property="og:type" content="article">
+@endsection
 @section("content")
     <div class="container-fluid" style="padding: 0px;">
         <div class="card" style="background-attachment: fixed; background: url('{{url('storage/app/public/'.$blog->image->firstWhere('size', 'full')->path)}}') center / cover no-repeat;height: 65vh;border-radius: 0px;border-width: 0px;">

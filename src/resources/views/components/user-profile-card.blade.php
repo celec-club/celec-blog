@@ -16,7 +16,7 @@
         </span>
         <br />
         <hr />
-        <a href="{{ url('user/'.$user->name.'/'.$user->id) }}" style="color:white; text-decoration: underline;">
+        <a href="mailto:{{$user->profile}}" style="color:white; text-decoration: underline;">
             {{$user->email}}
         </a>
     </center>
