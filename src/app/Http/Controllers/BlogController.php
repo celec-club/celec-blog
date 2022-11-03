@@ -17,7 +17,7 @@ class BlogController extends Controller
 {
     public function showAll(Request $request)
     {
-        $blogs = Blog::with('image')->orderByDesc('id');
+        $blogs = Blog::with('image', 'user')->orderByDesc('id');
         $category = null;
         if (! is_null($request->query('query'))) {
             $blogs = $blogs->where('title', 'LIKE', '%'.$request->query('query').'%')
@@ -38,7 +38,7 @@ class BlogController extends Controller
 
     public function get($slug)
     {
-        $blog = Blog::with(['tags', 'image'])->where('slug', $slug)->firstOrFail();
+        $blog = Blog::with(['tags', 'image', 'user'])->where('slug', $slug)->firstOrFail();
         $blog->update(['views' => $blog->views + 1]);
 
         return view('blog', ['blog' => $blog, 'content' => Markdown::parse($blog->content)]);

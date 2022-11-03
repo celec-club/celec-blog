@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminPanelController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminPanelController;
 
 Route::GET('/', [HomeController::class, 'index']);
 Route::GET('/blogs', [BlogController::class, 'showAll']);
 Route::GET('/b/{slug}', [BlogController::class, 'get']);
+Route::GET('user/{name}/{id}', [ProfileController::class, 'show']);
 
 Route::GROUP(['prefix' => 'admin'], function () {
     Route::GET('login', [AdminPanelController::class, 'showLogin']);

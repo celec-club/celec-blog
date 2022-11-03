@@ -33,4 +33,11 @@ class Blog extends Model
             return (new ReadTime($content))->get();
         });
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'email', 'email');
+    }
+
 }

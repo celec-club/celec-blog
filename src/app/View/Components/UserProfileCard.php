@@ -5,14 +5,14 @@ namespace App\View\Components;
 use App\Models\User;
 use Illuminate\View\Component;
 
-class Writers extends Component
+class UserProfileCard extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public User $user)
     {
         //
     }
@@ -24,8 +24,6 @@ class Writers extends Component
      */
     public function render()
     {
-        $users = User::withCount('blogs')->get();
-
-        return view('components.writers', ['users' => $users]);
+        return view('components.user-profile-card');
     }
 }

@@ -5,7 +5,7 @@
         <x-search-bar/>
         <div class="row" style="margin-top: 3%;">
             <div class="col">
-                <h1># Latest posts:</h1>
+                <h1># Latest articles:</h1>
             </div>
         </div>
         @if($blogs->count() > 0)

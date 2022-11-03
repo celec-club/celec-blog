@@ -17,11 +17,11 @@
                     {!! $content !!}
                 </div>
                 <br>
-                <h1 class="text-muted" style="font-size: 14px;">By: <a href="mailto:{{$blog->email}}">{{$blog->writer}}</a></h1>
+                <h1 class="text-muted" style="font-size: 14px;">By: <a href="{{url('user/'.$blog->writer.'/'.$blog->user->id)}}">{{$blog->writer}}</a></h1>
                 <hr>
                 <ul class="list-inline">
                     @foreach($blog->tags as $tag)
-                    <li class="list-inline-item" style="margin-top: 1%;color: black !important;"><span class="badge bg-primary border-primary" style="background: rgb(229, 229, 229) !important;color: black !important;padding: 10px;border-bottom: 1px solid rgb(167,167,167) !important;font-size: 18px;"><a href="{{ url('blogs?tag='.$tag->name) }}">#{{$tag->name}}</a></span></li>
+                        <li class="list-inline-item" style="margin-top: 1%;color: black !important;"><span class="badge bg-primary border-primary" style="background: rgb(229, 229, 229) !important;color: black !important;padding: 10px;border-bottom: 1px solid rgb(167,167,167) !important;font-size: 18px;"><a href="{{ url('blogs?tag='.$tag->name) }}">#{{$tag->name}}</a></span></li>
                     @endforeach
                 </ul>
             </div>
@@ -29,12 +29,12 @@
         <div class="row">
             <div class="col">
                 <script src="https://utteranc.es/client.js"
-            repo="CELEC-USTHB-CLUB/celec-blog"
-            issue-term="url"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-        </script>
+                    repo="CELEC-USTHB-CLUB/celec-blog"
+                    issue-term="url"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+                </script>
             </div>
         </div>
     </div>

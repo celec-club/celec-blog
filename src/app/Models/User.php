@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'icon',
+        'description'
     ];
 
     /**
@@ -46,4 +47,10 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'email', 'email');   
+    }
+
 }

@@ -5,7 +5,7 @@ services:
  php-apache-environment:
   networks:
    - celec-blog-network
-  container_name: php-apache
+  container_name: php-blog-apache
   build:
    context: ./php
    dockerfile: Dockerfile
