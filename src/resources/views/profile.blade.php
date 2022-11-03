@@ -3,7 +3,6 @@
 @section('meta-tags')
     <meta property="og:title" content="{{$user->name}} profile, CELEC blog.">
     <meta name="description" content="{{ $user->description }}">
-    <meta property="og:image" content="{!! $user->icon !!}">
     <meta property="og:type" content="profile">
 @endsection
 @section("content")
