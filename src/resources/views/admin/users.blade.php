@@ -31,6 +31,10 @@
 				    <label for="exampleInputEmail1" class="form-label">Password</label>
 				    <input name="password" type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 			  	</div>
+				<div class="mb-3">
+				    <label for="exampleInputEmail1" class="form-label">Description</label>
+				    <textarea name="description"></textarea>
+			  	</div>
 			  	<div class="mb-3" x-data="icon()">
 				    <label for="exampleInputEmail1" class="form-label">Icon</label>
 				    <div class="row">
