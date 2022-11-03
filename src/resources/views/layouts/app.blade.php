@@ -51,6 +51,8 @@
             50%{background-position:100% 29%}
             100%{background-position:0% 72%}
         }
+
+        
     </style>
     @yield('meta-tags')
 </head>

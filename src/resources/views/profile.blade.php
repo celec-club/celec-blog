@@ -17,7 +17,7 @@
     <x-search-bar />
     <x-user-profile-card :user="$user" />
     <div class="row" style="margin-top: 3%;">
-        <? $blogs = $user->blogs()->paginate(12)->withQueryString(); ?>
+        <? $blogs = $user->blogs()->orderByDesc('id')->paginate(12)->withQueryString(); ?>
         @foreach($blogs as $blog)
             <x-blog :blog="$blog" />
         @endforeach
