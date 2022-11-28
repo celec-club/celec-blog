@@ -4,7 +4,7 @@
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item"><a class="nav-link @if(Request::is('/')) active @endif" href="{{ url('/') }}">Home</a></li>
 				<li class="nav-item"><a class="nav-link @if(Request::is('blogs') OR Request::is('blogs/*')) active @endif" href="{{ url('blogs') }}">Browse</a></li>
-				<li class="nav-item"><a target="_blank" class="nav-link" href="http://usthb-celec.com/home">celec-usthb</a></li>
+				<li class="nav-item"><a target="_blank" class="nav-link" href="http://celec-club.com/home">celec-club</a></li>
 			</ul>
 		</div>
 	</div>

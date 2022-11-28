@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url('resources/css/styles.min.css') }}">
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/agate.min.css">
+    <link rel="icon" type="image/jpg" href="{{url('public/logo.jpg')}}">
     @livewireStyles
     <style type="text/css">
         code {
@@ -61,6 +62,7 @@
         <x-nav-bar/>
     @endif
     @yield("content")
+    <x-tech/>
     <footer class="footer-basic" style="background: #000000;color: rgb(255,255,255);margin-top: 10%; padding: 5%;">
         <div class="social">
             <a href="https://www.instagram.com/celec_usthb" target="_blank"><i class="icon ion-social-instagram"></i></a>
@@ -69,8 +71,8 @@
             <a href="https://github.com/CELEC-USTHB-CLUB/celec-blog" target="_blank"><i class="icon ion-social-github"></i></a>
         </div>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="http://usthb-celec.com/home#about" target="_blank">About</a></li>
-            <li class="list-inline-item"><a href="http://usthb-celec.com/home#footer" target="_blank">contact</a></li>
+            <li class="list-inline-item"><a href="http://celec-club.com/home#about" target="_blank">About</a></li>
+            <li class="list-inline-item"><a href="http://celec-club.com/home#footer" target="_blank">contact</a></li>
         </ul>
         <p class="copyright">Made with love <i style="color: #ff4d4d !important;" class="bi bi-heart-fill"></i> CELEC © 2021</p>
     </footer>
