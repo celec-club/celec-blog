@@ -2,6 +2,20 @@ version: "3"
 networks:
   celec-blog-network:
 services:
+ varnish:
+    image: varnish:stable
+    container_name: varnish
+    volumes:
+      - "./varnish/default.vcl:/etc/varnish/default.vcl"
+    ports:
+      - "7000:80"
+    tmpfs:
+      - /var/lib/varnish:exec
+    environment:
+      - VARNISH_SIZE=2G  
+    command: "-p default_keep=300"
+    depends_on:
+      - "php-apache-environment"
  php-apache-environment:
   networks:
    - celec-blog-network
@@ -13,7 +27,7 @@ services:
    - ./src/:/var/www/html/
    - ./php/config.ini:/usr/local/etc/php/conf.d/uploads-config.ini
   ports:
-   - 7000:80
+   - 7001:80
  mariadb:
   container_name: mariadb-celec-blog
   networks:
