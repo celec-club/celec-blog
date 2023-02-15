@@ -1,6 +1,6 @@
 vcl 4.1;
 
 backend default {
-    .host = "0.0.0.0";
+    .host = "php-apache-environment";
     .port = "80";
 }
