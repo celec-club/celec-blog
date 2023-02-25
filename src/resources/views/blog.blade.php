@@ -3,12 +3,12 @@
 @section('meta-tags')
     <meta property="og:title" content="{{$blog->title}}">
     <meta name="description" content="{{ $blog->description }}">
-    <meta property="og:image" content="{{url('storage/app/public/'.$blog->image->firstWhere('size', 'full')->path)}}">
+    <meta property="og:image" content="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '300', '300', 'fit')) }}/rs:fit:300:300/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}">
     <meta property="og:type" content="article">
 @endsection
 @section("content")
     <div class="container-fluid" style="padding: 0px;">
-        <div class="card" style="background-attachment: fixed; background: url('{{url('storage/app/public/'.$blog->image->firstWhere('size', 'full')->path)}}') center / cover no-repeat;height: 65vh;border-radius: 0px;border-width: 0px;">
+        <div class="card" style="background-attachment: fixed; background: url('{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '3000', '1400', 'fill')) }}/rs:fill:3000:1400/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}') center / cover no-repeat;height: 75vh;border-radius: 0px;border-width: 0px;">
             <div class="card-img-overlay" style="top: 70% !important;color: rgb(255,255,255);background: rgba(0,0,0,0.39);padding: 1%; border-radius: 0px;">
                 <h1><span style="text-decoration: underline;">{{$blog->title}}</span></h1>
                 <p>{{ date_format($blog->created_at, "Y-m-d")}} {{$blog->readingTime()}}</p>

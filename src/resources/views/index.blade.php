@@ -17,7 +17,7 @@
                         @if($blog !== null)
                             <div class="col" style="margin-top: 1%;">
                                 <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <img data-large="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" style="height: 350px; border-radius: 10px !important;">
                                     <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
                                      <h4 style="color: white;">
                                         <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
@@ -34,7 +34,7 @@
                         @if($blog !== null)
                             <div class="col" style="margin-top: 1%;">
                                 <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <img data-large="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" style="height: 350px; border-radius: 10px !important;">
                                     <div class="card-img-overlay index-blog" style=" position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
                                      <h4 style="color: white;">
                                         <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
@@ -53,7 +53,7 @@
                          @if($blog !== null)
                             <div class="col" style="margin-top: 1%;">
                                 <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <img data-large="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" style="height: 350px; border-radius: 10px !important;">
                                     <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
                                         <h4 style="color: white;">
                                             <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>
@@ -70,7 +70,7 @@
                             <? $blog = $blogs->pop(); ?>
                             @if($blog !== null)
                                 <div class="card blog-index-card" style="border-radius: 10px !important;">
-                                    <img data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'medium')->path) }}" style="height: 350px; border-radius: 10px !important;">
+                                    <img data-large="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" class="blurry-load card-img w-100 d-block img-fuild" src="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '600', '600', 'fit')) }}/rs:fit:600:600/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}" style="height: 350px; border-radius: 10px !important;">
                                     <div class="card-img-overlay index-blog" style="position: absolute;top: 65% !important;right: 0 !important; border-radius: 10px;">
                                         <h4 style="color: white;">
                                             <a style="color: white; font-weight:bolder;" href="{{ url('b/'.$blog->slug) }}">{{$blog->title}}</a>

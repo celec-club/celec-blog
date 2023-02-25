@@ -3,8 +3,8 @@
         <div class="card-body blog-zoom">
             <a href="{{ url('b/'.$blog->slug) }}">
                 <div class="blurry-load"
-                    data-large="{{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'small')->path) }}"
-                    style="background: url({{ ($blog->image->count() === 1) ? url('storage/app/public/'.$blog->image->first()->path) : url('storage/app/public/'.$blog->image->firstWhere('size', 'small')->path) }}) center / cover;height: 200px;border-radius: 16px;">
+                    data-large="{{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '400', '400', 'fit')) }}/rs:fit:400:400/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}"
+                    style="background: url({{ url("image-proxy-cdn/".generate_image_signature($blog->image->path, '400', '400', 'fit')) }}/rs:fit:400:400/g:ce/format:webp/plain/local:///storage/app/public/{{$blog->image->path}}) center / cover;height: 200px;border-radius: 16px;">
                 </div>
             </a>
             <div style="margin-top: 3%;">

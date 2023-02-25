@@ -84,7 +84,7 @@ class BlogController extends Controller
             $coverName = $slug.'-cover.jpeg';
             $fullCoverPath = $request->file('cover')->storeAs('covers', $coverName, ['disk' => 'public']);
             $blog->image()->create(['path' => $fullCoverPath, 'size' => 'full']);
-            (new CreateMultipleResizedImagesForBlogAction)->handle($blog, $fullCoverPath, $slug);
+            // (new CreateMultipleResizedImagesForBlogAction)->handle($blog, $fullCoverPath, $slug);
         }
 
         return redirect()->back()->with('message', 'The blog updated successfully');

@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", "Home")
+@section("title", "Browse blogs")
 @section("content")
     @if($category !== null)
         <div class="category-line" style="position: fixed; top: 0; z-index: 2; height: 5px; width: 100%; {!! $category->background; !!}"></div>

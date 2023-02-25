@@ -2,6 +2,19 @@ version: "3"
 networks:
   celec-blog-network:
 services:
+ imgproxy:
+    image: darthsim/imgproxy
+    environment:  
+      IMGPROXY_LOCAL_FILESYSTEM_ROOT: "/src"
+      IMGPROXY_KEY: "80e2aa39069cd9a46d6006dde409ff24463c274510df5c8f143467064e5c78c1c1a88a04ba3714d44bb118072b86b0ab3cb83835bb5d8bf23a282c5ac3a760b2"
+      IMGPROXY_SALT: "406aae6e2d49d00f6b33d885a35f1369d14fe7af492a2705a7f23ea56484e0e879ce9e85000c88bd6ab0ba3c0cc5aba901577ebd36461b3fb69925c389aca3f7"
+      IMGPROXY_CACHE_CONTROL_PASSTHROUGH: 1
+      IMGPROXY_MAX_SRC_RESOLUTION: 999999
+      IMGPROXY_USE_ETAG: 1
+    volumes:
+      - ./src:/src
+    networks:
+     - celec-blog-network
  varnish:
     image: varnish:stable
     container_name: varnish
@@ -28,8 +41,7 @@ services:
   volumes: 
    - ./src/:/var/www/html/
    - ./php/config.ini:/usr/local/etc/php/conf.d/uploads-config.ini
-  ports:
-   - 7001:80
+   - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
  mariadb:
   container_name: mariadb-celec-blog
   networks:
